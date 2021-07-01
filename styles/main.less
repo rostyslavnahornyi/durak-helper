@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+    background-color: #000;
+}
+
+.container {
+    max-width: 250px;
+    border: 1px solid #fff;
+}
+
+.navbar {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .navbar__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100px;
+        position: relative;
+
+        .navbar__text {
+            font-size: 40px;
+            color: #fff;
+            font-family: "proxima-nova";
+        }
+    }
+
+    .btn-setting {
+        position: absolute;
+        right: 0px;
+
+        height: 50px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.main {
+    border-top: 1px solid #fff;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .main__cards {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+
+        .main__row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-item {
+            width: 40px;
+            height: 65px;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .suit {
+                font-size: 30px;
+            }
+
+            .selected {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+
+                .up {
+                    height: 75%;
+                    opacity: 0.3;
+                    border-radius: 5px 5px 0 0;
+                }
+
+                .down {
+                    height: 25%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    font-size: 14px;
+                    color: #fff;
+
+                    opacity: 1;
+                    border-radius: 0 0 5px 5px;
+                }
+            }
+
+            .border {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                top: 0;
+                left: 0;
+                z-index: 1;
+
+                background-image: linear-gradient(
+                        90deg,
+                        blue 50%,
+                        transparent 50%
+                    ),
+                    linear-gradient(90deg, blue 50%, transparent 50%),
+                    linear-gradient(0, blue 50%, transparent 50%),
+                    linear-gradient(0, blue 50%, transparent 50%);
+                background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+                background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+                animation: marching-ants 0.8s infinite linear;
+            }
+
+            @keyframes marching-ants {
+                0% {
+                    background-position: 0 0, 10px 100%, 0 10px, 100% 0;
+                }
+
+                100% {
+                    background-position: 10px 0, 0 100%, 0 0, 100% 10px;
+                }
+            }
+
+            .backside {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+
+                .background {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    background-color: #fff;
+                }
+
+                .grid {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+
+                    background: linear-gradient(blue, transparent 1px),
+                        linear-gradient(90deg, blue, transparent 1px);
+                    background-size: 5px 5px;
+                    background-position: center center;
+                }
+            }
+        }
+
+        .card-black {
+            color: black;
+        }
+
+        .card-red {
+            color: red;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+
+    .footer__row {
+        width: 100%;
+        border-top: 1px solid #fff;
+
+        display: flex;
+        justify-content: space-between;
+
+        .footer__btn {
+            width: 33.3%;
+            height: 40px;
+            border: 1px solid #fff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #fff;
+            font-family: "proxima-nova";
+            text-align: center;
+
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+
+        .btn-my {
+            background-color: green;
+            opacity: 0.7;
+        }
+
+        .btn-not-mine {
+            background-color: red;
+            opacity: 0.7;
+        }
+
+        .btn-discard {
+            background-color: gray;
+            opacity: 0.7;
+        }
+    }
+}
